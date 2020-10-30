@@ -3,6 +3,7 @@
 #include "caesar.h"
 #include "viginere.h"
 #include "decrypt.h"
+#include "decode.h"
 
 using namespace std;
 int main()
@@ -18,4 +19,6 @@ int main()
   result == decryptCaesar("Rovvy, Gybvn!",10);
   cout<<result<<endl;
   
+  result = automatic_decode("Rovvy,Gybvn");
+  cout<<result<<endl;
 }

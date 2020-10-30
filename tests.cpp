@@ -4,6 +4,7 @@
 #include "caesar.h"
 #include "viginere.h"
 #include "decrypt.h"
+#include "decode.h"
 // add your tests here
 TEST_CASE("Test for shiftChar"){
     CHECK(shiftChar('a',25)=='z');
@@ -40,4 +41,12 @@ TEST_CASE("Test for decrypt"){
     CHECK(decryptCaesar("Bfd yt Lt!",5)=="Way to Go!");
     CHECK(decryptVigenere("Jevpq, Wyvnd!","cake")=="Hello, World!");
     CHECK(decryptVigenere("SvpTibq Oio","abcd")=="SunQiao Lin");
+}
+
+TEST_CASE("decode"){
+    CHECK(automatic_decode("nochange")=="nochange");
+    CHECK(automatic_decode("xzujwhfqnkwflnqnxynhjcunfqnithntzx")=="supercalifragilisticexpialidocious");
+    CHECK(automatic_decode("XZujwhfqnkwflnqnxynhjcunfqnithntZX")=="SUpercalifragilisticexpialidocioUS");
+    CHECK(automatic_decode("XZu jwhfqnkwflnqnxynhj,cunfqnith ntZX.")=="SUp ercalifragilistice,xpialidoc ioUS.");
+    CHECK(automatic_decode("Vszzc,Kcfzr hvwg wg ob sloadzs ct oihcaohwq rsqcrs")=="Hello,World this is an example of automatic decode");
 }

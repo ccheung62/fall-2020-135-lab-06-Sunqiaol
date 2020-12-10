@@ -14,11 +14,12 @@ int main()
 
   string result = encryptVigenere("Hello, World!","cake");
   cout<<result<<endl;
-  return 0;
 
-  result == decryptCaesar("Rovvy, Gybvn!",10);
+  result = decryptCaesar("Rovvy, Gybvn!",10);
   cout<<result<<endl;
   
   result = automatic_decode("Rovvy,Gybvn");
   cout<<result<<endl;
+
+  return 0;
 }

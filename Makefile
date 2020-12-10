@@ -3,7 +3,7 @@
 main: main.o funcs.o caesar.o viginere.o decrypt.o decode.o
 	g++ -o main main.o funcs.o caesar.o viginere.o decrypt.o decode.o
 
-tests: tests.o 
+tests: tests.o caesar.o viginere.o decrypt.o decode.o 
 	g++ -o tests tests.o caesar.o viginere.o decrypt.o decode.o
 
 
@@ -20,10 +20,11 @@ decrypt.o : decrypt.cpp decrypt.h
 decode.o : decode.cpp decode.h
 
 
-tests.o: tests.cpp  doctest.h caesar.h viginere.h decrypt.h decode.h
+tests.o: tests.cpp  doctest.h
+	g++ -c -std=c++11 tests.cpp
 
 clean:
-	rm -f main.o tests.o funcs.o caesar.o viginere.o decrypt.o decode.h
+	rm -f main.o tests.o funcs.o caesar.o viginere.o decrypt.o decode.o
 
 help:
 	@echo  make main : make executable named main

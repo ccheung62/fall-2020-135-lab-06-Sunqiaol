@@ -1,5 +1,7 @@
 #include<iostream>
+#include"caesar.h"
 #include"decrypt.h"
+/*
 char Reverse(char c, int rshift){
     char news =' ';
     int place = int(c) - rshift;
@@ -31,13 +33,14 @@ char Reverse(char c, int rshift){
         return c;
     }
 }
+*/
 
 
 std::string decryptCaesar(std::string ciphertext,int rshift){
     std::string plain="";
     for(int i =0;i<ciphertext.size();i++){ // loop the whole string
         if(isalpha(ciphertext[i])){
-            plain += Reverse(ciphertext[i],rshift); // use the function to shift
+            plain += shiftChar(ciphertext[i],-rshift); // use the function to shift
         }
         else{
             plain += ciphertext[i];
@@ -52,7 +55,7 @@ std::string decryptVigenere(std::string ciphtertext,std::string keyword){
     int x = 0;
    for(int i =0;i<ciphtertext.size();i++){ // loop through string
        if(isalpha(ciphtertext[i])){
-        result += Reverse(ciphtertext[i],(int(keyword[x])-97));
+	 result += shiftChar(ciphtertext[i],-(int(tolower(keyword[x]))-97));
         if(x>=keyword.size()-1){ // check for key word
             x=0;
         }

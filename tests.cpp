@@ -6,6 +6,7 @@
 #include "decrypt.h"
 #include "decode.h"
 // add your tests here
+
 TEST_CASE("Test for shiftChar"){
     CHECK(shiftChar('a',25)=='z');
     CHECK(shiftChar('A',25)=='Z');
@@ -29,10 +30,10 @@ TEST_CASE("Test for encryptVigenere"){
 }
 
 TEST_CASE("Test for reverse"){
-    CHECK(Reverse('a',2)=='y');
-    CHECK(Reverse('z',3)=='w');
-    CHECK(Reverse('Z',25)=='A');
-    CHECK(Reverse('c',5)=='x');
+    CHECK(shiftChar('a',-2)=='y');
+    CHECK(shiftChar('z',-3)=='w');
+    CHECK(shiftChar('Z',-25)=='A');
+    CHECK(shiftChar('c',-5)=='x');
 }
 
 TEST_CASE("Test for decrypt"){
@@ -50,3 +51,4 @@ TEST_CASE("decode"){
     CHECK(automatic_decode("XZu jwhfqnkwflnqnxynhj,cunfqnith ntZX.")=="SUp ercalifragilistice,xpialidoc ioUS.");
     CHECK(automatic_decode("Vszzc,Kcfzr hvwg wg ob sloadzs ct oihcaohwq rsqcrs")=="Hello,World this is an example of automatic decode");
 }
+
